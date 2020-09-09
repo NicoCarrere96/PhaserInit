@@ -1,20 +1,21 @@
+const game = new Phaser.Game(1136, 640, Phaser.CANVAS);
+
 GamePlayManager = {
-     init: () => {
-        console.log('init')
-     },
-     preload: () => {
-        console.log('preload')
-     },
-     create: () => {
-        console.log('create')
-     },
-     update: () => {
-        console.log('update')
-     }
+  init: () => {
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    game.scale.pageAlignHorizontally = true;
+    game.scale.pageAlignVertically = true;
+   },
+  preload: () => {
+    game.load.image("background", "assets/imgs/background.png");
+  },
+  create: () => {
+    game.add.sprite(0, 0, "background");
+  },
+  update: () => {
+    console.log("update");
+  },
+};
 
-}
-
-const game = new Phaser.Game(1136, 640, Phaser.AUTO);
-
-game.state.add('gameplay', GamePlayManager);
-game.state.start('gameplay');
+game.state.add("gameplay", GamePlayManager);
+game.state.start("gameplay");
